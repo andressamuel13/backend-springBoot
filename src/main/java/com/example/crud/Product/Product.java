@@ -1,8 +1,15 @@
 package com.example.crud.Product;
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
+
 import java.time.LocalDate;
 
+@Entity
+@Table
 public class Product {
+    @Id
     private Long id;
     private String name;
     private float price;
