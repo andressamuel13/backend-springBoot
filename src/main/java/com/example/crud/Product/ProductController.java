@@ -1,5 +1,6 @@
 package com.example.crud.Product;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.time.LocalDate;
@@ -22,7 +23,12 @@ public class ProductController {
     }
 
     @PostMapping
-    public void registrarProducto(@RequestBody Product product){
-        this.productService.newProduct(product);
+    public ResponseEntity<Object> registrarProducto(@RequestBody Product product){
+        return this.productService.newProduct(product);
+    }
+
+    @PutMapping
+    public ResponseEntity<Object> actualizarProducto(@RequestBody Product product){
+        return this.productService.updateProduct(product);
     }
 }
